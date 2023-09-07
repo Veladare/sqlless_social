@@ -47,11 +47,26 @@ const userController = {
         if (!deletedUser) {
           return res.status(404).json({ message: 'No user with that ID' });
         }
-  
-        // Optionally, you can also delete references to this user from other collections,
-        // such as removing the user from the 'friends' list of other users.
+
   
         res.json({ message: 'User deleted successfully', deletedUser });
+      } catch (err) {
+        res.status(500).json(err);
+      }
+    },
+    async updateUser(req, res) {
+      try {
+        const updatedUser = await User.findOneAndUpdate(
+          { _id: req.params.userId },
+          req.body,
+          { new: true }
+        );
+    
+        if (!updatedUser) {
+          return res.status(404).json({ message: 'No user with that ID' });
+        }
+    
+        res.json({ message: 'User updated successfully', updatedUser });
       } catch (err) {
         res.status(500).json(err);
       }
