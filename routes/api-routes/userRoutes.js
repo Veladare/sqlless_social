@@ -4,12 +4,16 @@ const {
     createUser,
     getSingleUser,
     deleteSingleUser,
-    updateUser
+    updateUser,
+    addSingleFriend,
+    removeFriend
 
 } = require('../../controller/userController')
 
 router.route("/").get(getAllUser).post(createUser)
 
 router.route('/:userId').get(getSingleUser).delete(deleteSingleUser).put(updateUser)
+
+router.route('/:userId/friends/:friendId').post(addSingleFriend).delete(removeFriend)
 
 module.exports = router;
