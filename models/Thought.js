@@ -1,12 +1,21 @@
 const {Schema, model, Types} = require("mongoose");
 
 
+function formatDate(date) {
+  return `${date.getMonth() + 1}/${date.getDate()}/${date.getFullYear()}`;
+}
+
 const reactionSchema = new Schema(
     {
       reactionId: {
         type: Schema.Types.ObjectId,
         default: () => new Types.ObjectId(),
       },
+      createdAt: {
+        type: Date,
+        default: Date.now,
+        get: formatDate
+    },
       reactionBody: {
         type: String,
         required: true,
@@ -15,11 +24,6 @@ const reactionSchema = new Schema(
       username: {
         type: String,
         required: true,
-      },
-      createdAt: {
-        type: Date,
-        default: Date.now,
-        get: (createdAtVal) => dateFormat(createdAtVal),
       },
     },
     {
@@ -40,14 +44,15 @@ const thoughtSchema = new Schema(
       createdAt: {
         type: Date,
         default: Date.now,
-        get: (createdAtVal) => dateFormat(createdAtVal),
-      },
+        get: formatDate
+    },
       username: {
         type: String,
         required: true,
       },
       reactions: [reactionSchema],
     },
+    
     {
       toJSON: {
         virtuals: true,

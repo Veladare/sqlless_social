@@ -32,6 +32,7 @@ const userController = {
         res.status(500).json(err);
       }
     },
+
     async createUser(req, res) {
       try {
         const createUser = await User.create(req.body);
@@ -40,6 +41,7 @@ const userController = {
         res.status(500).json(err);
       }
     },
+
     async deleteSingleUser(req, res) {
       try {
         const deletedUser = await User.findOneAndDelete({ _id: req.params.userId });
@@ -54,6 +56,7 @@ const userController = {
         res.status(500).json(err);
       }
     },
+
     async updateUser(req, res) {
       try {
         const updatedUser = await User.findOneAndUpdate(
@@ -71,6 +74,7 @@ const userController = {
         res.status(500).json(err);
       }
     },
+
     async addSingleFriend(req, res) {
       try {
         const user = await User.findOneAndUpdate(
@@ -82,7 +86,7 @@ const userController = {
         if (!user) {
           return res
             .status(404)
-            .json({ message: 'no friend /w that ID' });
+            .json({ message: 'no friend with that ID' });
         }
   
         res.json(user);
