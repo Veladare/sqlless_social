@@ -90,11 +90,11 @@ const userController = {
         res.status(500).json(err);
       }
     },
-    async removeFriend({ params }, res) {
+    async removeFriend(req, res) {
       try {
         const dbUserData = await User.findOneAndUpdate(
-          { _id: params.userId },
-          { $pull: { friends: params.friendId } },
+          { _id: req.params.userId },
+          { $pull: { friends: req.params.friendId } },
           { new: true }
         );
     
