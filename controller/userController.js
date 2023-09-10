@@ -82,11 +82,10 @@ const userController = {
           { $addToSet: { friends: req.params.friendId } },
           { runValidators: true, new: true }
         );
+        
   
         if (!user) {
-          return res
-            .status(404)
-            .json({ message: 'no friend with that ID' });
+          return res.status(404).json({ message: 'no friend with that ID' });
         }
   
         res.json(user);

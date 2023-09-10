@@ -118,10 +118,11 @@ const thoughtController = {
     async removeReaction(req, res) {
       try {
           const reaction = await Thought.findOneAndUpdate(
-              { reactionId: req.params.reactionId },
-              { $pull: { reactions: req.body } },
+              {_id: req.params.thoughtId},
+              {$pull: {reactions: {reactionId: req.params.reactionId}}},
               { runValidators: true, new: true }
           );
+          console.log(reaction)
   
           if (!reaction) {
               return res
@@ -129,11 +130,13 @@ const thoughtController = {
                   .json({ message: 'No reaction found with that ID :(' });
           }
   
-          res.json(reaction);
+          res.json({message:'Reaction successfully deleted', reaction});
       } catch (err) {
           res.status(500).json(err);
       }
   },
+
+
   }
 
   module.exports = thoughtController

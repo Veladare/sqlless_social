@@ -2,7 +2,10 @@ const {Schema, model, Types} = require("mongoose");
 
 
 function formatDate(date) {
-  return `${date.getMonth() + 1}/${date.getDate()}/${date.getFullYear()}`;
+  const month = date.getMonth() + 1;
+  const day = date.getDate();
+  const year = date.getFullYear().toString();
+  return `${month}/${day}/${year}`;
 }
 
 const reactionSchema = new Schema(
