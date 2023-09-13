@@ -20,7 +20,7 @@
 
 The purpose of this challenge is to create a social network using monogoose, an alternative to sql, to create and store user and user's information on the backend. 
 
-In completing this challenge, I learned how to build models, create controllers and routes using monogoose. It reinforced my understanding of the MVC paradigm for building backend APIs.
+In completing this challenge, I learned how to build models, create controllers and routes using monogoose and reinforced my understanding of the MVC paradigm for building backend APIs. Overall, the challenge was more of review with a few adaptations to make it work with monogoose.
 
 ## Installation 
 
@@ -40,4 +40,4 @@ Please refer to the LICENSE in the repo.
 
 ## Test
 
-[deployed website](https://mvc-fantasyblog-5e70d599a3dc.herokuapp.com/)
+[Video demostration](https://drive.google.com/file/d/1UFJrKogc0WXpwWDTLDsKsHe57kCHZEFh/view)
