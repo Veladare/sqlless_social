@@ -1,9 +1,5 @@
 ## Nosql API Social Network
 
-## Screenshot
-
-<img width="1901" alt="hw 14 Screenshot" src="https://github.com/Veladare/Fantasy_blog/assets/126302466/2f1aa38b-5ae3-4eda-8a40-48a533caa07b">
-
 
 ## Table of Contents
   
